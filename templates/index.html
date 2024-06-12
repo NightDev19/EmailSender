@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email Sender</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='CSS/style.css')}}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Email Sender</h1>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+      <form action="/send_email" method="post">
+        <label for="subject">
+          <span>Subject:</span>
+          <input type="text" name="subject" placeholder="Header of the email" required />
+        </label>
+        <label for="message">
+          <span>Message:</span>
+          <textarea name="message" rows="4" cols="50" placeholder="Message" required></textarea>
+        </label>
+        <label for="to_email">
+          <span>To Email:</span>
+          <input type="email" name="to_email" placeholder="e.g sample@gmail.com" required />
+        </label>
+        <button type="submit">Send Email</button>
+      </form>
+    </div>
+  </body>
+</html>
